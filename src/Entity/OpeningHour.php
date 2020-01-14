@@ -32,7 +32,7 @@ class OpeningHour
     private $openingTime;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="time", nullable=true)
      */
     private $closingtime;
 

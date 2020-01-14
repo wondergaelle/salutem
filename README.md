@@ -115,3 +115,23 @@ se connecter le matin
 symfony serve
 npm run watch
 ```
+
+### CREATION DES DONNEES DE TEST
+
+https://symfony.com/doc/current/bundles/DoctrineFixturesBundle/index.html
+
+```shell
+composer req --dev orm-fixtures
+```
+
+Générer des fichiers de fixtures :
+
+```shell
+php bin/console make:fixtures
+```
+
+Exécuter les fixtures :
+
+```shell
+php bin/console doctrine:fixtures:load
+```
