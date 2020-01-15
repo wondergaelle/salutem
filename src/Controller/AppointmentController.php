@@ -39,7 +39,10 @@ class AppointmentController extends AbstractController
             $entityManager->persist($appointment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('appointment_index');
+            // pour afficher le message de confirmation reliée a base
+            $this->addFlash('notice','Demande de rendez-vous enregistrée');
+
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('appointment/new.html.twig', [

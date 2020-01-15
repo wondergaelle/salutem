@@ -10,6 +10,14 @@
 </head>
 <body>
 <header>
+    {# pour afficher le message de confirmation relié a appointment controller#}
+    {% if app.flashes %}
+    <div class="container">
+        {% for message in app.flashes %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="header-top">
         <div class="container">
         {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}
