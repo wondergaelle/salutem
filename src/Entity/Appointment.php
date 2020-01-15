@@ -34,7 +34,7 @@ class Appointment
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email()
+
      */
     private $phone;
 
@@ -45,6 +45,7 @@ class Appointment
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today", message="La date doit être supérieure à {{ compared_value }}")
      */
     private $date;
 
