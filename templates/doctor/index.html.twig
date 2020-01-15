@@ -13,7 +13,7 @@
         <div class="container">
             <!-- boucle pour afficher la photo, le nom et les compétences des médecins -->
             {% for doctor in doctors %}
-                {% include 'doctor/_thumbnail.html.twig.html' with {'doctor':doctor} %}
+                {% include 'doctor/_thumbnail.html.twig' with {'doctor':doctor} %}
             {% endfor %}
         </div>
     </section>
