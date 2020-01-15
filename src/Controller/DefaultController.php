@@ -22,6 +22,12 @@ class DefaultController extends AbstractController
         $doctors = $this->getDoctrine()->getRepository(Doctor::class)->findAll();
         $openingHours = $this->getDoctrine()->getRepository(OpeningHour::class)->findAll();
 
+        // affiche l'adresse de l'utilisateur dans le formulaire quand il est connecté
+        $appointment = new Appointment();
+        if ($this->getUser()){
+           $appointment->setEmail($this->getUser()->getEmail());
+        }
+        // formulaire des RDV
         $appointmentForm = $this->createForm(AppointmentType::class, new Appointment(), [
             'action'=>$this->generateUrl('appointment_new')
         ]);

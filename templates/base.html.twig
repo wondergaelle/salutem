@@ -12,15 +12,15 @@
 <header>
     {# pour afficher le message de confirmation relié a appointment controller#}
     {% if app.flashes %}
-    <div class="container">
-        {% for message in app.flashes %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
+        <div class="container">
+            {% for message in app.flashes %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
     {% endif %}
     <div class="header-top">
         <div class="container">
-        {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}
+            {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}
             <div class="contact-infos">
                 <ul>
                     <li>
@@ -53,6 +53,14 @@
                 <li><a href="#">La maison médicale</a></li>
                 <li><a href="{{ path('doctor_index') }}">Nos docteurs</a></li>
                 <li><a href="#">Nous contacter</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('easyadmin') }}">Administration</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -69,7 +77,9 @@
                 <i class="fa fa-heartbeat"></i>
                 Salutem
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, dolorem doloremque iste molestiae nulla officiis provident quas quos, rerum sapiente sed sint voluptas? Accusantium asperiores dolor dolores in libero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis, dolorem doloremque iste
+                molestiae nulla officiis provident quas quos, rerum sapiente sed sint voluptas? Accusantium asperiores
+                dolor dolores in libero?</p>
         </article>
         <article>
             <h3>Nous contacter</h3>

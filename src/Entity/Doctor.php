@@ -167,4 +167,10 @@ class Doctor
     public function getFullName(): string {
         return $this->getFirstname()." ". $this->getLastname();
     }
+
+    public function __toString()
+    {
+       return $this->getFullName();
+    }
+
 }
