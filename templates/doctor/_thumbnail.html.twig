@@ -1,0 +1,18 @@
+<article class="doctor-thumbnail">
+    <img src={{ asset('uploads/' ~ doctor.photo) }}                            >
+    <div class="doctor-details">
+        <h4> {{ doctor.fullname }} </h4>
+        <p class="doctor-skills">
+            {% for skill in doctor.skills %}
+                <span>{{ skill.label }}</span>
+                {#  {{% if not loop.last %}
+                      /
+                  {% endif %}}#}
+            {% endfor %}
+        </p>
+        <a href="{{ path('doctor_show', {'id' : doctor.id}) }}" class="btn btn-dark">
+            <i class="fa fa-eye"></i>
+            Plus d'informations
+        </a>
+    </div>
+</article>

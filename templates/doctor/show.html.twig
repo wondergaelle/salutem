@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ doctor.fullname }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>{{ doctor.fullname }}</h1>
+        <img src="{{ asset('uploads/' ~ doctor.photo) }}" alt="{{ doctor.fullname }}">
+        <p>Compétences : </p>
+        <ul>
+            {% for skill in doctor.skills %}
+                <li>{{ skill.label }}</li>
+                {% else %}
+                <li>aucune compétences</li>
+            {% endfor %}
+        </ul>
+        <p>{{ doctor.description }}</p>
+
+    </div>
+{% endblock %}
