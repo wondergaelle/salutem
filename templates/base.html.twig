@@ -12,11 +12,7 @@
 <header>
     <div class="header-top">
         <div class="container">
-            <div class="social-networks">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
+        {{ render(controller('App\\Controller\\DefaultController::headerSocialNetworks')) }}
             <div class="contact-infos">
                 <ul>
                     <li>
